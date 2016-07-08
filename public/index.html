@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
     <head>
         <title>Ideal Cleaning Solutions</title>
+        
+        <!-- Angular CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+        
+        <!-- core -->
+        <script src="resources/app/app.js"></script>
+        
+        <!-- landingPage -->
+        <script src="resources/app/landingPage/landingPage.module.js"></script>
+        <script src="resources/app/landingPage/landingPage.controller.js"></script>
     </head>
     <body>
-        <h1>Future site of Ideal Cleaning Solutions</h1>
+        <div ng-view></div>
     </body>
 </html>
