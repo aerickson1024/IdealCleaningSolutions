@@ -23,7 +23,7 @@ body {
 /* REUSABLE COMPONENTS */
 /* ------------------------------------------------------------------------ */
 .row {
-    max-width: 1140px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -43,9 +43,35 @@ div.col h1 {
 /* ------------------------------------------------------------------------ */
 
 header {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,1) 80%), url(img/bubbles_dark_blue.jpeg);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.70), rgba(255,255,255,1) 90%), url(img/bubbles_dark_blue.jpeg);
     background-size: cover;
     background-position: center;
     height: 100vh;
     background-attachment: fixed;
+}
+
+ul {
+    list-style: none;
+    margin-top: 15%;
+}
+
+ul li {
+    margin: 1%;
+    padding: 4% 2.5%;
+    font-weight: 400;
+    background: linear-gradient(to right, rgba(255,255,255,0.75), rgba(255,255,255,0.75) 40%, rgba(0,0,0,0) 40%);
+    transition: background 1s;
+}
+
+ul li:hover {
+    background: linear-gradient(to right, rgba(255,255,255,0.75), rgba(255,255,255,0.75) 25%, rgba(0,0,0,0) 65%);
+}
+
+div.image-box {
+    text-align: left;
+}
+
+div.col img {
+    width: 100%;
+    margin-top: 103px;
 }
