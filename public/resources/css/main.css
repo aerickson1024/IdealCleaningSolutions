@@ -39,11 +39,27 @@ div.col h1 {
 }
 
 /* ------------------------------------------------------------------------ */
+/* ROWS */
+/* ------------------------------------------------------------------------ */
+
+section.bottom-row {
+    margin-top: 220px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* COLUMNS */
+/* ------------------------------------------------------------------------ */
+
+div.left-column {
+    height: 100%;
+}
+
+/* ------------------------------------------------------------------------ */
 /* HEADER */
 /* ------------------------------------------------------------------------ */
 
 header {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.70), rgba(255,255,255,1) 90%), url(img/bubbles_dark_blue.jpeg);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.70), rgba(255,255,255,1) 95%), url(img/bubbles_dark_blue.jpeg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -52,14 +68,15 @@ header {
 
 ul {
     list-style: none;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
 }
 
 ul li {
     text-align: center;
-    margin: 1%;
+    margin: 4.7%;
     padding: 1.5% 2.5%;
     font-weight: 400;
+    font-size: 100%;
     background: linear-gradient(
         to right,
         rgba(0,0,0,0) 0%,
@@ -80,6 +97,7 @@ ul li:hover {
         rgba(255,255,255,0.75) 70%,
         rgba(255,255,255,0) 90%,
         rgba(0,0,0,0) 100%);
+        cursor: pointer;
 }
 
 div.image-box {
@@ -88,6 +106,20 @@ div.image-box {
 
 div.col img {
     float: left;
-    width: 75%;
-    margin-top: 100px;
+    width: 73%;
+    /*margin-top: 100px;*/
+}
+
+/* ------------------------------------------------------------------------ */
+/* FOOTER */
+/* ------------------------------------------------------------------------ */
+
+footer {
+    background-color: #fff;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -5px 3px #e6e6e6;
 }
