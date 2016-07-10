@@ -64,57 +64,6 @@ body {
 }
 
 /* ------------------------------------------------------------------------ */
-/* MAIN SECTION */
-/* ------------------------------------------------------------------------ */
-
-ul {
-    list-style: none;
-    /*margin-top: 100px;*/
-}
-
-ul li {
-    text-align: center;
-    margin: 4.7%;
-    padding: 1.5% 2.5%;
-    font-weight: 300;
-    font-size: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0) 30%,
-        rgba(255,255,255,0.75) 30%,
-        rgba(255,255,255,0.75) 70%,
-        rgba(0,0,0,0) 70%,
-        rgba(0,0,0,0) 100%);
-    transition: background 1s;
-}
-
-ul li:hover {
-    background: linear-gradient(
-        to right,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0) 10%,
-        rgba(255,255,255,0.75) 30%,
-        rgba(255,255,255,0.75) 70%,
-        rgba(255,255,255,0) 90%,
-        rgba(0,0,0,0) 100%);
-        cursor: pointer;
-}
-
-div.image-box {
-    text-align: left;
-}
-
-div.col img {
-    float: left;
-    width: 73%;
-}
-
-section.home-row {
-    margin-top: 50px;
-}
-
-/* ------------------------------------------------------------------------ */
 /* FOOTER */
 /* ------------------------------------------------------------------------ */
 
@@ -129,21 +78,17 @@ footer {
 }
 
 footer section div.left-column {
-    /*margin: 20px 0;*/
     margin: 30px 0 0 0;
     text-align: center;
     font-size: 70%;
 }
 
 footer section div.right-column {
-    /*margin: 20px 0;*/
     margin: 25px 0 0 0;
-    /*text-align: center;*/
 }
 
 ul.social-links {
     list-style: none;
-    /*float: left;*/
 }
 
 ul.social-links li {
@@ -151,7 +96,6 @@ ul.social-links li {
     display: inline-block;
     padding: 0;
     margin: 0;
-    /*margin-right: 20px;*/
 }
 
 ul.social-links li:first-child {

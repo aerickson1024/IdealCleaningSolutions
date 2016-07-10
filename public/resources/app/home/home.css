@@ -1,0 +1,45 @@
+section.home ul {
+    list-style: none;
+}
+
+section.home ul li {
+    text-align: center;
+    margin: 4.7%;
+    padding: 1.5% 2.5%;
+    font-weight: 300;
+    font-size: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 30%,
+        rgba(255,255,255,0.75) 30%,
+        rgba(255,255,255,0.75) 70%,
+        rgba(0,0,0,0) 70%,
+        rgba(0,0,0,0) 100%);
+    transition: background 1s;
+}
+
+section.home ul li:hover {
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 10%,
+        rgba(255,255,255,0.75) 30%,
+        rgba(255,255,255,0.75) 70%,
+        rgba(0,0,0,0) 90%,
+        rgba(0,0,0,0) 100%);
+        cursor: pointer;
+}
+
+section.home div.image-box {
+    text-align: left;
+}
+
+section.home div.col img {
+    float: left;
+    width: 73%;
+}
+
+section.home {
+    margin-top: 50px;
+}
