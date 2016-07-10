@@ -23,11 +23,40 @@
         <!-- core -->
         <script src="resources/app/app.js"></script>
 
-        <!-- landingPage -->
+        <!-- home -->
         <script src="resources/app/home/home.module.js"></script>
         <script src="resources/app/home/home.controller.js"></script>
+
+        <!-- schedule -->
+        <script src="resources/app/schedule/schedule.module.js"></script>
+        <script src="resources/app/schedule/schedule.controller.js"></script>
     </head>
     <body>
-        <div ng-view></div>
+        <header>
+            <section class="row">
+                <div class="col span-2-of-2">
+                    <h1>Ideal Cleaning Solutions</h1>
+                </div>
+            </section>
+        </header>
+        <section class="main">
+            <div ng-view></div>
+        </section>
+        <footer>
+            <section class="row">
+                <div class="col span-1-of-2 left-column">
+                    <p>
+                        Copyright &copy; 2016 &mdash; Ideal Cleaning Solutions, LLC.  All rights reserved.
+                    </p>
+                </div>
+                <div class="col span-1-of-2 right-column">
+                    <ul class="social-links">
+                        <li><a href="http://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="http://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="http://www.youtube.com"><i class="ion-social-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </section>
+        </footer>
     </body>
 </html>
