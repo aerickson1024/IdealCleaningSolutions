@@ -1,7 +1,77 @@
 <section class="schedule">
     <div class="row">
-        <div class="col span-1-of-2">
-            <h2>This is the schedule page</h2>
+        <div class="col span-1-of-2 options-box">
+            <h3>Is this a Commercial or Residential building?</h3>
+            <form name="types" class="radio-types">
+                <div ng-if="vm.radioSelected == ''">
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                </div>
+                <div ng-if="vm.radioSelected == 'Commercial'">
+                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                </div>
+                <div ng-if="vm.radioSelected == 'Residential'">
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                </div>
+            </form>
+            <div ng-show="vm.radioSelected" class="step-2">
+                <hr class="hr" />
+                <div ng-if="vm.radioSelected == 'Commercial'">
+                    <h3>Please provide some basic information</h3>
+                    <div class="desks">
+                        <label>
+                            <input type="text" ng-model="vm.numberOfDesks" />
+                            Number of desks
+                        </label>
+                    </div>
+                    <div class="bathrooms">
+                        <label>
+                            <input type="text" ng-model="vm.numberOfBathrooms" />
+                            Number of bathrooms
+                        </label>
+                    </div>
+                    <div ng-if="!vm.checkBox">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleCheckBox(true)"><span>Kitchen / Break room</span></i>
+                    </div>
+                    <div ng-if="vm.checkBox">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleCheckBox(false)"><span>Kitchen / Break room</span></i>
+                    </div>
+                </div>
+                <div ng-if="vm.radioSelected == 'Residential'">
+                    residential was selected
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.radioSelected" class="col span-1-of-2 quote-box">
+            <h2>Quick Quote</h2>
+            <h3>Service Type: {{ vm.radioSelected }}</h3>
+            <hr class="hr" />
+            <div class="services-block" ng-repeat="service in vm.quote.services">
+                <div ng-if="service.quantity > 0" class="row">
+                    <div class="col span-1-of-2">
+                        {{ service.name }}
+                    </div>
+                    <div class="col span-1-of-2 align-right">
+                        <span>{{ service.quantity }} x {{ service.costOfService | currency:"$" }}</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr" />
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <strong>Total</strong>
+                </div>
+                <div class="col span-1-of-2 align-right">
+                    <strong ng-if="vm.quote.total == 0">
+                        $-.-
+                    </strong>
+                    <strong ng-if="vm.quote.total !== 0">
+                        {{ vm.quote.total | currency:"$"}}
+                    </strong>
+                </div>
+            </div>
         </div>
     </div>
 </section>
