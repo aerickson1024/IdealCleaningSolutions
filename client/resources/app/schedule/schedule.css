@@ -66,3 +66,12 @@ section.schedule div.quote-box div.row div.align-right span,
 section.schedule div.quote-box div.row div.align-right strong {
     float: right;
 }
+
+section.schedule div.estimate {
+    text-align: center;
+    font-size: 9pt;
+}
+
+section.schedule div.estimate strong {
+    color: rgb(255, 0, 0);
+}

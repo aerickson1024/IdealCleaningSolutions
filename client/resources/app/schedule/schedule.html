@@ -4,16 +4,16 @@
             <h3>Is this a Commercial or Residential building?</h3>
             <form name="types" class="radio-types">
                 <div ng-if="vm.radioSelected == ''">
-                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
-                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButton('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButton('Residential')"> Residential</i>
                 </div>
                 <div ng-if="vm.radioSelected == 'Commercial'">
-                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
-                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButton('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButton('Residential')"> Residential</i>
                 </div>
                 <div ng-if="vm.radioSelected == 'Residential'">
-                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButon('Commercial')"> Commercial</i>
-                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButon('Residential')"> Residential</i>
+                    <i class="ion-ios-circle-outline" ng-click="vm.selectedRadioButton('Commercial')"> Commercial</i>
+                    <i class="ion-ios-circle-filled" ng-click="vm.selectedRadioButton('Residential')"> Residential</i>
                 </div>
             </form>
             <div ng-show="vm.radioSelected" class="step-2">
@@ -32,11 +32,17 @@
                             Number of bathrooms
                         </label>
                     </div>
-                    <div ng-if="!vm.checkBox">
-                        <i class="ion-ios-circle-outline" ng-click="vm.toggleCheckBox(true)"><span>Kitchen / Break room</span></i>
+                    <div ng-if="!vm.kitchBathBox">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleKitchBathBox(true)"><span>Kitchen / Break room</span></i>
                     </div>
-                    <div ng-if="vm.checkBox">
-                        <i class="ion-ios-checkmark" ng-click="vm.toggleCheckBox(false)"><span>Kitchen / Break room</span></i>
+                    <div ng-if="vm.kitchBathBox">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleKitchBathBox(false)"><span>Kitchen / Break room</span></i>
+                    </div>
+                    <div ng-if="!vm.receptionBox">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleReceptionBox(true)"><span>Reception Area</span></i>
+                    </div>
+                    <div ng-if="vm.receptionBox">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleReceptionBox(false)"><span>Reception Area</span></i>
                     </div>
                 </div>
                 <div ng-if="vm.radioSelected == 'Residential'">
@@ -70,6 +76,11 @@
                     <strong ng-if="vm.quote.total !== 0">
                         {{ vm.quote.total | currency:"$"}}
                     </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col span-2-of-2 estimate">
+                    <strong>*This is only en estimate. Actual charges may vary.*</strong>
                 </div>
             </div>
         </div>
