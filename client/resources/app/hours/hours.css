@@ -1,0 +1,19 @@
+section.hours div.main-box {
+    background-color: rgba(255,255,255,0.75);
+    padding: 35px;
+    text-align: center;
+}
+
+section.hours div.main-box h2,
+section.hours div.main-box hr {
+    margin-bottom: 25px;
+}
+
+section.hours table {
+    margin-left: 15%;
+    width: 70%;
+}
+
+section.hours table td {
+    padding-bottom: 8px;
+}

@@ -1,6 +1,11 @@
 (function(){
     angular
-        .module('app', ['app.home', 'app.schedule', 'ngRoute'])
+        .module('app', [
+            'ngRoute',
+            'app.home',
+            'app.schedule',
+            'app.hours'
+        ])
         .config(['$routeProvider', function($routeProvider){
             $routeProvider
                 .when('/', {
@@ -11,6 +16,11 @@
                 .when('/schedule', {
                     templateUrl: 'resources/app/schedule/schedule.html',
                     controller: 'schedule',
+                    controllerAs: 'vm'
+                })
+                .when('/hours', {
+                    templateUrl: 'resources/app/hours/hours.html',
+                    controller: 'hours',
                     controllerAs: 'vm'
                 })
                 .otherwise({ redirectTo: '/' });
