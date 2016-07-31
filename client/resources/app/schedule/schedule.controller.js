@@ -8,39 +8,29 @@
     function Schedule($rootScope, $scope, service){
         var vm = this;
 
-        // Load data from service when controller is instantiated
-        service.getRadioSelected(function(radioSelected) {
-            vm.radioSelected = radioSelected;
-        });
-
+        /*********************************************************************/
+        //  COMMERCIAL
+        /*********************************************************************/
         service.getNumberOfDesks(function(numberOfDesks) {
             vm.numberOfDesks = numberOfDesks;
         });
 
-        service.getNumberOfBathrooms(function(numberOfBathrooms) {
-            vm.numberOfBathrooms = numberOfBathrooms;
+        service.getNumberOfCommBathrooms(function(numberOfCommBathrooms) {
+            vm.numberOfCommBathrooms = numberOfCommBathrooms;
         });
 
-        service.getKitchBathBox(function(kitchBathBox) {
-            vm.kitchBathBox = kitchBathBox;
+        service.getKitchBreak(function(kitchBreak) {
+            vm.kitchBreak = kitchBreak;
         });
 
-        service.getReceptionBox(function(receptionBox) {
-            vm.receptionBox = receptionBox;
+        service.getReception(function(reception) {
+            vm.reception = reception;
         });
 
-        service.getQuote(function(quote) {
-            vm.quote = quote;
-        });
+        vm.toggleKitchBreak = function(checked) {
+            service.setKitchBreak(checked);
 
-        vm.selectedRadioButton = function(radioSelection){
-            service.setRadioSelected(radioSelection);
-        }
-
-        vm.toggleKitchBathBox = function(checked){
-            service.setKitchBathBox(checked);
-
-            service.getKitchBathBox(function(response) {
+            service.getKitchBreak(function(response) {
                 if (response) {
                     service.updateKitchBreakQuantity(1);
                 } else {
@@ -49,10 +39,10 @@
             });
         }
 
-        vm.toggleReceptionBox = function(checked){
-            service.setReceptionBox(checked);
+        vm.toggleReception = function(checked) {
+            service.setReception(checked);
 
-            service.getReceptionBox(function(response) {
+            service.getReception(function(response) {
                 if (response) {
                     service.updateReceptionQuantity(1);
                 } else {
@@ -67,11 +57,75 @@
             }
         });
 
-        $scope.$watch('vm.numberOfBathrooms', function(newValue, oldValue){
+        $scope.$watch('vm.numberOfCommBathrooms', function(newValue, oldValue){
             if (newValue !== oldValue){
-                service.updateNumberOfBathrooms(newValue);
+                service.updateNumberOfCommBathrooms(newValue);
             }
         });
+
+        /*********************************************************************/
+        //  RESIDENTIAL
+        /*********************************************************************/
+        service.getNumberOfBedrooms(function(numberOfBedrooms) {
+            vm.numberOfBedrooms = numberOfBedrooms;
+        });
+
+        service.getNumberOfResBathrooms(function(numberOfResBathrooms) {
+            vm.numberOfResBathrooms = numberOfResBathrooms;
+        });
+
+        service.getNumberOfAdditionalRooms(function(numberOfAdditionalRooms) {
+            vm.numberOfAdditionalRooms = numberOfAdditionalRooms;
+        });
+
+        service.getKitchDineLiving(function(kitchDineLiving) {
+            vm.kitchDineLiving = kitchDineLiving;
+        });
+
+        vm.toggleKitchDineLiving = function(checked) {
+            service.setKitchDineLiving(checked);
+
+            service.getKitchDineLiving(function(response) {
+                if (response) {
+                    service.updateKitchDineLivingQuantity(1);
+                } else {
+                    service.updateKitchDineLivingQuantity(0);
+                }
+            });
+        }
+
+        $scope.$watch('vm.numberOfBedrooms', function(newValue, oldValue){
+            if (newValue !== oldValue){
+                service.updateNumberOfBedrooms(newValue);
+            }
+        });
+
+        $scope.$watch('vm.numberOfResBathrooms', function(newValue, oldValue){
+            if (newValue !== oldValue){
+                service.updateNumberOfResBathrooms(newValue);
+            }
+        });
+
+        $scope.$watch('vm.numberOfAdditionalRooms', function(newValue, oldValue){
+            if (newValue !== oldValue){
+                service.updateNumberOfAdditionalRooms(newValue);
+            }
+        });
+
+        /*********************************************************************/
+        //  BOTH COMMERCIAL AND RESIDENTIAL
+        /*********************************************************************/
+        service.getRadioSelected(function(radioSelected) {
+            vm.radioSelected = radioSelected;
+        });
+
+        service.getQuote(function(quote) {
+            vm.quote = quote;
+        });
+
+        vm.selectedRadioButton = function(radioSelection) {
+            service.setRadioSelected(radioSelection);
+        }
 
         $rootScope.$on('updateTotalPrice', function() {
             service.calculateTotal(function(quote) {
@@ -81,27 +135,26 @@
 
         $rootScope.$on('updateScheduleController', function() {
             service.getRadioSelected(function(radioSelected) {
+                if (radioSelected == 'Commercial') {
+                    service.getKitchBreak(function(kitchBreak) {
+                        vm.kitchBreak = kitchBreak;
+                    });
+
+                    service.getReception(function(reception) {
+                        vm.reception = reception;
+                    });
+                } else if (radioSelected == 'Residential') {
+                    service.getKitchDineLiving(function(kitchDineLiving) {
+                        vm.kitchDineLiving = kitchDineLiving;
+                    });
+                } else {
+                    console.log('vm.radioSelected does not contain a valid value.');
+                }
+
                 vm.radioSelected = radioSelected;
-            });
-
-            service.getNumberOfDesks(function(numberOfDesks) {
-                vm.numberOfDesks = numberOfDesks;
-            });
-
-            service.getNumberOfBathrooms(function(numberOfBathrooms) {
-                vm.numberOfBathrooms = numberOfBathrooms;
-            });
-
-            service.getKitchBathBox(function(kitchBathBox) {
-                vm.kitchBathBox = kitchBathBox;
-            });
-
-            service.getReceptionBox(function(receptionBox) {
-                vm.receptionBox = receptionBox;
-            });
-
-            service.getQuote(function(quote) {
-                vm.quote = quote;
+                service.getQuote(function(quote) {
+                    vm.quote = quote;
+                });
             });
         });
     }

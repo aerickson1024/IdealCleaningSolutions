@@ -18,38 +18,68 @@
             </form>
             <div ng-show="vm.radioSelected" class="step-2">
                 <hr class="hr" />
+
+                <!-- Commerical Rates Section -->
                 <div ng-if="vm.radioSelected == 'Commercial'">
                     <h3>Please provide some basic information</h3>
-                    <div class="desks">
+                    <div>
                         <label>
                             <input type="text" ng-model="vm.numberOfDesks" />
                             Number of desks
                         </label>
                     </div>
-                    <div class="bathrooms">
+                    <div >
                         <label>
-                            <input type="text" ng-model="vm.numberOfBathrooms" />
+                            <input type="text" ng-model="vm.numberOfCommBathrooms" />
                             Number of bathrooms
                         </label>
                     </div>
-                    <div ng-if="!vm.kitchBathBox">
-                        <i class="ion-ios-circle-outline" ng-click="vm.toggleKitchBathBox(true)"><span>Kitchen / Break room</span></i>
+                    <div ng-if="!vm.kitchBreak">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleKitchBreak(true)"><span>Kitchen / Break room</span></i>
                     </div>
-                    <div ng-if="vm.kitchBathBox">
-                        <i class="ion-ios-checkmark" ng-click="vm.toggleKitchBathBox(false)"><span>Kitchen / Break room</span></i>
+                    <div ng-if="vm.kitchBreak">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleKitchBreak(false)"><span>Kitchen / Break room</span></i>
                     </div>
-                    <div ng-if="!vm.receptionBox">
-                        <i class="ion-ios-circle-outline" ng-click="vm.toggleReceptionBox(true)"><span>Reception Area</span></i>
+                    <div ng-if="!vm.reception">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleReception(true)"><span>Reception Area</span></i>
                     </div>
-                    <div ng-if="vm.receptionBox">
-                        <i class="ion-ios-checkmark" ng-click="vm.toggleReceptionBox(false)"><span>Reception Area</span></i>
+                    <div ng-if="vm.reception">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleReception(false)"><span>Reception Area</span></i>
                     </div>
                 </div>
+
+                <!-- Residential Rates Section -->
                 <div ng-if="vm.radioSelected == 'Residential'">
-                    NOT YET IMPLEMENTED
+                    <h3>Please provide some basic information</h3>
+                    <div>
+                        <label>
+                            <input type="text" ng-model="vm.numberOfBedrooms" />
+                            Number of bedrooms
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="text" ng-model="vm.numberOfResBathrooms" />
+                            Number of bathrooms
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="text" ng-model="vm.numberOfAdditionalRooms" />
+                            Number of Additional rooms
+                        </label>
+                    </div>
+                    <div ng-if="!vm.kitchDineLiving">
+                        <i class="ion-ios-circle-outline" ng-click="vm.toggleKitchDineLiving(true)"><span>Kitchen / Dining / Living Room</span></i>
+                    </div>
+                    <div ng-if="vm.kitchDineLiving">
+                        <i class="ion-ios-checkmark" ng-click="vm.toggleKitchDineLiving(false)"><span>Kitchen / Dining / Living Room</span></i>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Quote section -->
         <div ng-if="vm.radioSelected" class="col span-1-of-2 quote-box">
             <h2>Quick Quote</h2>
             <h3>Service Type: {{ vm.radioSelected }}</h3>
