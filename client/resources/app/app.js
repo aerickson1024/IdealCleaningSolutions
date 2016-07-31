@@ -4,7 +4,8 @@
             'ngRoute',
             'app.home',
             'app.schedule',
-            'app.hours'
+            'app.hours',
+            'app.contact'
         ])
         .config(['$routeProvider', function($routeProvider){
             $routeProvider
@@ -21,6 +22,11 @@
                 .when('/hours', {
                     templateUrl: 'resources/app/hours/hours.html',
                     controller: 'hours',
+                    controllerAs: 'vm'
+                })
+                .when('/contact', {
+                    templateUrl: 'resources/app/contact/contact.html',
+                    controller: 'contact',
                     controllerAs: 'vm'
                 })
                 .otherwise({ redirectTo: '/' });
