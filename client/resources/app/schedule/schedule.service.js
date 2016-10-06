@@ -19,13 +19,13 @@
         var commercialQuote = {
             services: {
                 numberOfDesks: {
-                    name: 'Number of Desks',
+                    name: 'Desks',
                     quantity: 0,
                     costOfService: 29.99,
                     totalPrice: 0
                 },
                 numberOfCommBathrooms: {
-                    name: 'Number of Bathrooms',
+                    name: 'Bathrooms',
                     quantity: 0,
                     costOfService: 24.99,
                     totalPrice: 0
@@ -108,21 +108,21 @@
         var residentialQuote = {
             services: {
                 numberOfBedrooms: {
-                    name: 'Number of Bedrooms',
+                    name: 'Bedrooms',
                     quantity: 0,
                     costOfService: 25.00,
                     totalPrice: 0
                 },
                 numberOfResBathrooms: {
-                    name: 'Number of Bathrooms',
+                    name: 'Bathrooms',
                     quantity: 0,
                     costOfService: 25.00,
                     totalPrice: 0
                 },
                 numberOfAdditionalRooms: {
-                    name: 'Additional Rooms',
+                    name: 'Other rooms',
                     quantity: 0,
-                    costOfService: 20.00,
+                    costOfService: 25.00,
                     totalPrice: 0
                 },
                 kitchDineLiving: {
